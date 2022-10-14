@@ -8,6 +8,7 @@
         <h:outputStylesheet library="css" name="bootstrap.min.css" />
         <link rel="stylesheet" href="../../public/css/navbarandfooter.css"/>
         <link rel="stylesheet" href="../../public/css/main.css"/>
+        <h:outputScript library = "js" name = "message.js" /> 
     </h:head>
     <h:body>
         <ui:include src="../layouts/navbar.xhtml"/>
@@ -74,7 +75,7 @@
                                 <tr>
                                     <td colspan="3">
                                         <center>
-                                            <b:commandButton look="primary btn-success" value="UBAH" action="#{admins.update()}" icon="edit" />
+                                            <b:commandButton look="primary btn-success" value="UBAH" action="#{admins.update()}" icon="edit" onclick="showMessage()"/>
                                             &nbsp;&nbsp;&nbsp;
                                             <b:commandButton look="primary btn-success" value="HAPUS" action="#{admins.delete()}" icon="trash"/>
                                         </center>

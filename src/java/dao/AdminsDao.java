@@ -58,13 +58,6 @@ public class AdminsDao extends BaseDao {
         return admin;
     }
     
-    public void logout() {
-//        Session session = hibernateUtil.openSession(Admins.class);
-//        session.flush();
-//        session.clear();
-//        session.close();
-    }
-    
 //    public static void main(String[] args) {
 //        AdminsDao adminsDao = new AdminsDao();
 //        

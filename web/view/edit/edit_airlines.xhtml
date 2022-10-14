@@ -10,53 +10,48 @@
         <link rel="stylesheet" href="../../public/css/main.css"/>
     </h:head>
     <h:body>
-        <ui:include src="./layouts/navbar.xhtml"/>
+        <ui:include src="../layouts/navbar.xhtml"/>
                 <div class="container">
                                 <div class="row" display="table">
                 <div class="col-12">
         <h:form>
                                 <br/>
-                                <h:outputLabel style="font-family: Centaur; font-size: 35px">Data Pelanggan</h:outputLabel>
+                                <h:outputLabel style="font-family: Centaur; font-size: 35px">Data Maskapai Penerbangan</h:outputLabel>
                                 <br/><br/>
                                 <table>
                                     <tr>
                                         <td>
-                                            <h:outputLabel style="font-family: Centaur; font-size: 24px">ID Pelanggan</h:outputLabel>
+                                            <h:outputLabel style="font-family: Centaur; font-size: 24px">ID Maskapai Penerbangan</h:outputLabel>
                                         </td>
                                         <td width="5%"></td>
-                                        <td><b:inputText style="font-family: Centaur; font-size: 18px" placeholder="Masukkan ID Dicari" value="#{flights.id}"/></td>
+                                        <td><b:inputText style="font-family: Centaur; font-size: 18px" placeholder="Masukkan ID Dicari" value="#{airlines.id}"/></td>
                                     </tr>
                                     <tr>
                                         <td></td>
                                         <td></td>
                                         <td>
                                             <center>
-                                                <b:commandButton look="primary btn-success" value="Cari Data Pelanggan" action="#{flights.getById()}" icon="search" />
+                                                <b:commandButton look="primary btn-success" value="Cari Data" action="#{airlines.getById()}" icon="search" />
                                             </center>
                                             <br/>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><h:outputLabel style="font-family: Centaur; font-size: 24px">Route ID:</h:outputLabel></td>
+                                        <td><h:outputLabel style="font-family: Centaur; font-size: 24px">Kode Maskapai:</h:outputLabel></td>
                                         <td></td>
-                                        <td><b:inputText style="font-family: Centaur; font-size: 18px" value="#{flights.routes}"/></td>
+                                        <td><b:inputText style="font-family: Centaur; font-size: 18px" value="#{airlines.code}"/></td>
                                     </tr>
                                     <tr>
-                                        <td><h:outputLabel style="font-family: Centaur; font-size: 24px">Airplane ID:</h:outputLabel></td>
+                                        <td><h:outputLabel style="font-family: Centaur; font-size: 24px">Nama Maskapai:</h:outputLabel></td>
                                         <td></td>
-                                        <td><b:inputText style="font-family: Centaur; font-size: 18px" value="#{flights.airplanes}"/></td>
-                                    </tr>
-                                    <tr>
-                                        <td><h:outputLabel style="font-family: Centaur; font-size: 24px">Time Of Departure</h:outputLabel></td>
-                                        <td></td>
-                                        <td><b:inputText style="font-family: Centaur; font-size: 18px" value="#{flights.timeOfDeparture}"/></td>
+                                        <td><b:inputText style="font-family: Centaur; font-size: 18px" value="#{airlines.name}"/></td>
                                     </tr>
                                     <tr>
                                         <td colspan="3">
                                             <center>
-                                                <b:commandButton look="primary btn-success" value="UBAH" action="#{flights.update()}" icon="edit" />
+                                                <b:commandButton look="primary btn-success" value="UBAH" action="#{airlines.update()}" icon="edit" />
                                                 &nbsp;&nbsp;&nbsp;
-                                                <b:commandButton look="primary btn-success" value="HAPUS" action="#{flights.delete()}" icon="trash"/>
+                                                <b:commandButton look="primary btn-success" value="HAPUS" action="#{airlines.delete()}" icon="trash"/>
                                             </center>
                                         </td>
                                     </tr>
@@ -66,7 +61,7 @@
                 </div>
                                 </div>
                 </div>
-        <ui:include src="./layouts/footer.xhtml"/>
+        <ui:include src="../layouts/footer.xhtml"/>
     </h:body>
 </html>
 

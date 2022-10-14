@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="../../public/css/main.css"/>
     </h:head>
     <h:body>
-        <ui:include src="./layouts/navbar.xhtml"/>
+        <ui:include src="../layouts/navbar.xhtml"/>
             <div class="container">
                 <div class="row" display="table">
                     <div class="col-12">
@@ -31,7 +31,7 @@
                                     <td></td>
                                     <td>
                                         <center>
-                                            <b:commandButton look="primary btn-success" value="Cari Data Admin" action="#{admins.getById()}" icon="search" />
+                                            <b:commandButton look="primary btn-success" value="Cari Data" action="#{admins.getById()}" icon="search" />
                                         </center>
                                         <br/>
                                     </td>
@@ -86,7 +86,7 @@
                     </div>
                 </div>
             </div>
-        <ui:include src="./layouts/footer.xhtml"/>
+        <ui:include src="../layouts/footer.xhtml"/>
     </h:body>
 </html>
 

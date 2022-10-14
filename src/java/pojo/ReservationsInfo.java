@@ -1,6 +1,7 @@
 package pojo;
 // Generated Oct 10, 2022 3:35:36 PM by Hibernate Tools 4.3.1
 
+import dao.ReservationsDao;
 import dao.ReservationsInfoDao;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
@@ -15,6 +16,7 @@ import javax.faces.bean.ManagedBean;
 public class ReservationsInfo  implements java.io.Serializable {
 
      private Integer id;
+     private int reservationId;
      private Reservations reservations;
      private String seatClass;
      private String name;
@@ -117,6 +119,9 @@ public class ReservationsInfo  implements java.io.Serializable {
     }
 
     public String update() {
+        ReservationsDao reservationDao = new ReservationsDao();
+        reservations = reservationDao.getById(reservationId);
+        
         boolean isUpdated = dao.update(this);
         
         return isUpdated ? "../reservations_info.xhtml" : "./edit_reservations_info.xhtml";

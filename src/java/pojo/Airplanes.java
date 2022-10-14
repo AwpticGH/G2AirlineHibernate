@@ -2,6 +2,7 @@ package pojo;
 // Generated Oct 10, 2022 3:35:36 PM by Hibernate Tools 4.3.1
 
 
+import dao.AirlinesDao;
 import dao.AirplanesDao;
 import java.util.HashSet;
 import java.util.List;
@@ -16,6 +17,7 @@ public class Airplanes  implements java.io.Serializable {
 
 
      private Integer id;
+     private int airlineId;
      private Airlines airlines;
      private String type;
      private Integer totalSeats;
@@ -65,6 +67,16 @@ public class Airplanes  implements java.io.Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
+
+    public int getAirlineId() {
+        return airlineId;
+    }
+
+    public void setAirlineId(int airlineId) {
+        this.airlineId = airlineId;
+    }
+    
+    
     public Airlines getAirlines() {
         return this.airlines;
     }
@@ -169,12 +181,18 @@ public class Airplanes  implements java.io.Serializable {
     }
 
     public String update() {
+        AirlinesDao airlineDao = new AirlinesDao();
+        airlines = airlineDao.getById(airlineId);
+        
         boolean isUpdated = dao.update(this);
         
         return isUpdated ? "../airplanes.xhtml" : "./edit_airplanes.xhtml";
     }
 
     public String create() {
+        AirlinesDao airlineDao = new AirlinesDao();
+        airlines = airlineDao.getById(airlineId);
+        
         boolean isCreated = dao.create(this);
         
         return isCreated ? "../airplanes.xhtml" : "./create_airplanes.xhtml";

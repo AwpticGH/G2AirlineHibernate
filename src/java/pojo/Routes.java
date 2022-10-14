@@ -2,6 +2,7 @@ package pojo;
 // Generated Oct 10, 2022 3:35:36 PM by Hibernate Tools 4.3.1
 
 
+import dao.AirportsDao;
 import dao.RoutesDao;
 import java.util.HashSet;
 import java.util.List;
@@ -16,6 +17,8 @@ public class Routes  implements java.io.Serializable {
 
 
      private Integer id;
+     private int from;
+     private int to;
      private Airports airportsByDestinationId;
      private Airports airportsByDepartureId;
      private int timeOfFlight;
@@ -37,6 +40,22 @@ public class Routes  implements java.io.Serializable {
        this.airportsByDepartureId = airportsByDepartureId;
        this.timeOfFlight = timeOfFlight;
        this.flightses = flightses;
+    }
+
+    public int getFrom() {
+        return from;
+    }
+
+    public void setFrom(int from) {
+        this.from = from;
+    }
+
+    public int getTo() {
+        return to;
+    }
+
+    public void setTo(int to) {
+        this.to = to;
     }
    
     public Integer getId() {
@@ -82,29 +101,37 @@ public class Routes  implements java.io.Serializable {
     public String getById() {
         Routes route = dao.getById(id);
         this.id = route.getId();
-        this.airportsByDepartureId = route.getAirportsByDepartureId();
-        this.airportsByDestinationId = route.getAirportsByDestinationId();
+        this.from = route.getAirportsByDepartureId().getId();
+        this.to = route.getAirportsByDestinationId().getId();
         this.timeOfFlight = route.getTimeOfFlight();
         
-        return "./edit_routes.xhtml";
+        return "./edit/edit_routes.xhtml";
     }
 
     public String create() {
+        AirportsDao apDao = new AirportsDao();
+        airportsByDepartureId = apDao.getById(from);
+        airportsByDestinationId = apDao.getById(to);
+        
         boolean isCreated = dao.create(this);
         
-        return isCreated ? "../routes.xhtml" : "./create_routes.xhtml";
+        return isCreated ? "../routes.xhtml" : "./create/create_routes.xhtml";
     }
 
     public String update() {
+        AirportsDao apDao = new AirportsDao();
+        airportsByDepartureId = apDao.getById(from);
+        airportsByDestinationId = apDao.getById(to);
+        
         boolean isUpdated = dao.update(this);
         
-        return isUpdated ? "../routes.xhtml" : "./edit_routes.xhtml";
+        return isUpdated ? "../routes.xhtml" : "./edit/edit_routes.xhtml";
     }
     
     public String delete() {
         boolean isDeleted = dao.delete(this);
         
-        return isDeleted ? "../routes.xhtml" : "./edit_routes.xhtml";
+        return isDeleted ? "../routes.xhtml" : "./edit/edit_routes.xhtml";
     }
 }
 

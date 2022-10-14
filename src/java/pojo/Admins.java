@@ -136,10 +136,8 @@ public class Admins implements java.io.Serializable {
         return admin != null;
     }
     
-    public String logout() {
-        dao.logout();
-        
-        return "/index.xhtml";
+    public String logout() {        
+        return "/G2AirlineHibernate/faces/view/users.xhtml";
     }
     
     public String create() {

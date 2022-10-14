@@ -2,7 +2,9 @@ package pojo;
 // Generated Oct 10, 2022 3:35:36 PM by Hibernate Tools 4.3.1
 
 
+import dao.AirplanesDao;
 import dao.FlightsDao;
+import dao.RoutesDao;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -17,6 +19,8 @@ public class Flights  implements java.io.Serializable {
 
 
      private Integer id;
+     private int airplaneId;
+     private int routeId;
      private Airplanes airplanes;
      private Routes routes;
      private Date timeOfDeparture;
@@ -47,6 +51,24 @@ public class Flights  implements java.io.Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
+
+    public int getAirplaneId() {
+        return airplaneId;
+    }
+
+    public void setAirplaneId(int airplaneId) {
+        this.airplaneId = airplaneId;
+    }
+
+    public int getRouteId() {
+        return routeId;
+    }
+
+    public void setRouteId(int routeId) {
+        this.routeId = routeId;
+    }
+    
+    
     public Airplanes getAirplanes() {
         return this.airplanes;
     }
@@ -91,12 +113,21 @@ public class Flights  implements java.io.Serializable {
     }
     
     public String create() {
+        RoutesDao routeDao = new RoutesDao();
+        routes = routeDao.getById(routeId);
+        AirplanesDao airplaneDao = new AirplanesDao();
+        airplanes = airplaneDao.getById(airplaneId);
         boolean isCreated = dao.create(this);
         
         return isCreated ? "../admins.xhtml" : "./create_admins.xhtml";
     }
 
     public String update() {
+        RoutesDao routeDao = new RoutesDao();
+        routes = routeDao.getById(routeId);
+        AirplanesDao airplaneDao = new AirplanesDao();
+        airplanes = airplaneDao.getById(airplaneId);
+        
         boolean isUpdated = dao.update(this);
         
         return isUpdated ? "../admins.xhtml" : "./edit_admins.xhtml";

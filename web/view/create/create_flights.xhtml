@@ -10,54 +10,34 @@
         <link rel="stylesheet" href="../../public/css/main.css"/>
     </h:head>
     <h:body>
-        <ui:include src="./layouts/navbar.xhtml"/>
+        <ui:include src="../layouts/navbar.xhtml"/>
                 <div class="container">
                                 <div class="row" display="table">
                 <div class="col-12">
         <h:form>
                                 <br/>
-                                <h:outputLabel style="font-family: Centaur; font-size: 35px">Data Pesawat</h:outputLabel>
+                                <h:outputLabel style="font-family: Centaur; font-size: 35px">Data Penerbangan</h:outputLabel>
                                 <br/><br/>
                                 <table>
                                     <tr>
-                                        <td><h:outputLabel style="font-family: Centaur; font-size: 24px">Name:</h:outputLabel></td>
+                                        <td><h:outputLabel style="font-family: Centaur; font-size: 24px">Rute ID:</h:outputLabel></td>
                                         <td></td>
-                                        <td><b:inputText style="font-family: Centaur; font-size: 18px" value="#{airplanes.type}"/></td>
+                                        <td><b:inputText style="font-family: Centaur; font-size: 18px" value="#{flights.routeId}"/></td>
                                     </tr>
                                     <tr>
-                                        <td><h:outputLabel style="font-family: Centaur; font-size: 24px">Username:</h:outputLabel></td>
+                                        <td><h:outputLabel style="font-family: Centaur; font-size: 24px">Pesawat ID:</h:outputLabel></td>
                                         <td></td>
-                                        <td><b:inputText style="font-family: Centaur; font-size: 18px" value="#{airplanes.airlines.id}"/></td>
+                                        <td><b:inputText style="font-family: Centaur; font-size: 18px" value="#{flights.airplaneId}"/></td>
                                     </tr>
                                     <tr>
-                                        <td><h:outputLabel style="font-family: Centaur; font-size: 24px">Password:</h:outputLabel></td>
+                                        <td><h:outputLabel style="font-family: Centaur; font-size: 24px">Waktu Penerbangan:</h:outputLabel></td>
                                         <td></td>
-                                        <td><b:inputText style="font-family: Centaur; font-size: 18px" value="#{airplanes.totalSeats}"/></td>
-                                    </tr>
-                                    <tr>
-                                        <td><h:outputLabel style="font-family: Centaur; font-size: 24px">Create Privilege:</h:outputLabel></td>
-                                        <td></td>
-                                        <td><b:inputText style="font-family: Centaur; font-size: 18px" value="#{airplanes.economySeats}"/></td>
-                                    </tr>
-                                    <tr>
-                                        <td><h:outputLabel style="font-family: Centaur; font-size: 24px">Read Privilege:</h:outputLabel></td>
-                                        <td></td>
-                                        <td><b:inputText style="font-family: Centaur; font-size: 18px" value="#{airplanes.premiumEconomySeats}"/></td>
-                                    </tr>
-                                    <tr>
-                                        <td><h:outputLabel style="font-family: Centaur; font-size: 24px">Update Privilege:</h:outputLabel></td>
-                                        <td></td>
-                                        <td><b:inputText style="font-family: Centaur; font-size: 18px" value="#{airplanes.businessSeats}"/></td>
-                                    </tr>
-                                    <tr>
-                                        <td><h:outputLabel style="font-family: Centaur; font-size: 24px">Delete Privilege:</h:outputLabel></td>
-                                        <td></td>
-                                        <td><b:inputText style="font-family: Centaur; font-size: 18px" value="#{airplanes.deletePriv}"/></td>
+                                        <td><b:inputText style="font-family: Centaur; font-size: 18px" value="#{flights.timeOfDeparture}"/></td>
                                     </tr>
                                     <tr>
                                         <td colspan="3">
                                             <center>
-                                                <b:commandButton look="primary btn-success" value="BUAT" action="#{airplanes.create()}" icon="create" />
+                                                <b:commandButton look="primary btn-success" value="BUAT" action="#{flights.create()}" icon="create" />
                                             </center>
                                         </td>
                                     </tr>
@@ -67,7 +47,7 @@
                 </div>
                                 </div>
                 </div>
-        <ui:include src="./layouts/footer.xhtml"/>
+        <ui:include src="../layouts/footer.xhtml"/>
     </h:body>
 </html>
 

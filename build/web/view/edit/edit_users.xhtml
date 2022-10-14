@@ -10,18 +10,18 @@
         <link rel="stylesheet" href="../../public/css/main.css"/>
     </h:head>
     <h:body>
-        <ui:include src="./layouts/navbar.xhtml"/>
+        <ui:include src="../layouts/navbar.xhtml"/>
                 <div class="container">
                                 <div class="row" display="table">
                 <div class="col-12">
         <h:form>
                                 <br/>
-                                <h:outputLabel style="font-family: Centaur; font-size: 35px">Data Admin</h:outputLabel>
+                                <h:outputLabel style="font-family: Centaur; font-size: 35px">Data User</h:outputLabel>
                                 <br/><br/>
                                 <table>
                                     <tr>
                                         <td>
-                                            <h:outputLabel style="font-family: Centaur; font-size: 24px">ID Admin</h:outputLabel>
+                                            <h:outputLabel style="font-family: Centaur; font-size: 24px">ID User</h:outputLabel>
                                         </td>
                                         <td width="5%"></td>
                                         <td><b:inputText style="font-family: Centaur; font-size: 18px" placeholder="Masukkan ID Dicari" value="#{users.id}"/></td>
@@ -31,7 +31,7 @@
                                         <td></td>
                                         <td>
                                             <center>
-                                                <b:commandButton look="primary btn-success" value="Cari Data Admin" action="#{users.getById()}" icon="search" />
+                                                <b:commandButton look="primary btn-success" value="Cari Data" action="#{users.getById()}" icon="search" />
                                             </center>
                                             <br/>
                                         </td>
@@ -91,7 +91,7 @@
                 </div>
                                 </div>
                 </div>
-        <ui:include src="./layouts/footer.xhtml"/>
+        <ui:include src="../layouts/footer.xhtml"/>
     </h:body>
 </html>
 

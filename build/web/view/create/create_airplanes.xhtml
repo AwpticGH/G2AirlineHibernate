@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="../../public/css/main.css"/>
     </h:head>
     <h:body>
-        <ui:include src="./layouts/navbar.xhtml"/>
+        <ui:include src="../layouts/navbar.xhtml"/>
                 <div class="container">
                                 <div class="row" display="table">
                 <div class="col-12">
@@ -27,7 +27,7 @@
                                     <tr>
                                         <td><h:outputLabel style="font-family: Centaur; font-size: 24px">Username:</h:outputLabel></td>
                                         <td></td>
-                                        <td><b:inputText style="font-family: Centaur; font-size: 18px" value="#{airplanes.airlines.id}"/></td>
+                                        <td><b:inputText style="font-family: Centaur; font-size: 18px" value="#{airplanes.airlineId}"/></td>
                                     </tr>
                                     <tr>
                                         <td><h:outputLabel style="font-family: Centaur; font-size: 24px">Password:</h:outputLabel></td>
@@ -52,7 +52,7 @@
                                     <tr>
                                         <td><h:outputLabel style="font-family: Centaur; font-size: 24px">Delete Privilege:</h:outputLabel></td>
                                         <td></td>
-                                        <td><b:inputText style="font-family: Centaur; font-size: 18px" value="#{airplanes.deletePriv}"/></td>
+                                        <td><b:inputText style="font-family: Centaur; font-size: 18px" value="#{airplanes.firstClassSeats}"/></td>
                                     </tr>
                                     <tr>
                                         <td colspan="3">
@@ -67,7 +67,7 @@
                 </div>
                                 </div>
                 </div>
-        <ui:include src="./layouts/footer.xhtml"/>
+        <ui:include src="../layouts/footer.xhtml"/>
     </h:body>
 </html>
 

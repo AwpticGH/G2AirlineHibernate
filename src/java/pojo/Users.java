@@ -161,7 +161,13 @@ public class Users  implements java.io.Serializable {
         return isUpdated ? "../users.xhtml" : "./edit_users.xhtml";
     }
     
-    public String create() {
+    public String create() throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String date = sdf.format(dateOfBirth);
+        Date newDate = sdf.parse(date);
+        
+        dateOfBirth = newDate;
+        
         boolean isCreated = dao.create(this);
         
         return isCreated ? "../users.xhtml" : "./create_users.xhtml";

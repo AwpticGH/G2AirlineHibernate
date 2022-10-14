@@ -5,6 +5,7 @@
  */
 package dao;
 
+import alert.Alerts;
 import config.HibernateUtil;
 import java.util.Iterator;
 import java.util.List;
@@ -155,14 +156,17 @@ public class BaseDao {
         return entity;
     }
     public boolean update(Object pojo){
+        Alerts alert = new Alerts();
         Transaction trans = null;
         Session session = hibernateUtil.openSession(pojo.getClass());
-        boolean success = false;
+        boolean succeed = false;
         try {
             trans = session.beginTransaction();
             session.update(pojo);
             trans.commit();
-            success = true;
+            succeed = true;
+            alert.setStatus(succeed);
+            alert.setSuccess("Successfully Updated Data");
         }
         catch (Exception e){
             System.out.println(e);
@@ -171,18 +175,21 @@ public class BaseDao {
             session.close();
         }
         
-        return success;
+        return succeed;
     }
     
     public boolean create(Object pojo) {
+        Alerts alert = new Alerts();
         Transaction trans = null;
         Session session = hibernateUtil.openSession(pojo.getClass());
-        boolean success = false;
+        boolean succeed = false;
         try {
             trans = session.beginTransaction();
             session.save(pojo);
             trans.commit();
-            success = true;
+            succeed = true;
+            alert.setStatus(succeed);
+            alert.setSuccess("Successfully Inserted New Data");
         }
         catch (Exception e) {
             System.out.println(e);
@@ -190,18 +197,21 @@ public class BaseDao {
         finally {
             session.close();
         }
-        return success;
+        return succeed;
     }
     
     public boolean delete(Object pojo) {
+        Alerts alert = new Alerts();
         Transaction trans = null;
         Session session = hibernateUtil.openSession(pojo.getClass());
-        boolean success = false;
+        boolean succeed = false;
         try {
             trans = session.beginTransaction();
             session.delete(pojo);
             trans.commit();
-            success = true;
+            succeed = true;
+            alert.setStatus(succeed);
+            alert.setSuccess("Successfully Deleted Data");
         }
         catch (Exception e) {
             System.out.println(e);
@@ -209,6 +219,6 @@ public class BaseDao {
         finally {
             session.close();
         }
-        return success;
+        return succeed;
     }
 }

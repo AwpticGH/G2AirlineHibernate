@@ -11,10 +11,14 @@
     </h:head>
     <h:body>
         <ui:include src="../layouts/navbar.xhtml"/>
-                <div class="container">
-                                <div class="row" display="table">
-                <div class="col-12">
-        <h:form>
+            <div class="container">
+                <div class="row" display="table">
+                    <div class="col-12">
+                        <h:panelGroup rendered="#{alerts.status}">
+                            <script>alert(#{alerts.success});</script>
+                        </h:panelGroup>
+                    
+                        <h:form>
                                 <br/>
                                 <h:outputLabel style="font-family: Centaur; font-size: 35px">Data Admin</h:outputLabel>
                                 <br/><br/>
